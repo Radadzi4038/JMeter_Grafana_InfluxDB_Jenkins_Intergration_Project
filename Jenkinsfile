@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        JMETER_HOME = "C:\JMeter\apache-jmeter-5.6.3"
+        JMETER_HOME = "C:\\JMeter\\apache-jmeter-5.6.3"
         TEST_PLAN = "Assignment2_Performance_Test.jmx"
         RESULTS = "results.jtl"
         LOGFILE = "jmeter.log"
