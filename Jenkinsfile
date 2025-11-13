@@ -37,6 +37,9 @@ pipeline {
                 "%JMETER_HOME%\\bin\\jmeter.bat" -g "%WORKSPACE%\\%RESULTS%" -o "%WORKSPACE%\\Report"
                 """
                 publishHTML([
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
                     reportDir: 'Report',
                     reportFiles: 'index.html',
                     reportName: 'JMeter HTML Report'
