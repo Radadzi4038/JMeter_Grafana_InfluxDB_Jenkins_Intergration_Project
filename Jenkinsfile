@@ -19,7 +19,13 @@ pipeline {
 
         stage('Run JMeter Test') {
             steps {
+                // Delete any existing results before running the new test
                 bat """
+
+                if exist "%WORKSPACE%\\%RESULTS%" del "%WORKSPACE%\\%RESULTS%"
+               
+                if exist "%WORKSPACE%\\%LOGFILE%" del "%WORKSPACE%\\%LOGFILE%"
+               
                 "%JMETER_HOME%\\bin\\jmeter.bat" -n -t "%WORKSPACE%\\%TEST_PLAN%" -l "%WORKSPACE%\\%RESULTS%" -j "%WORKSPACE%\\%LOGFILE%"
                 """
             }
